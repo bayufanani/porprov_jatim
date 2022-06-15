@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
         $data = [
             'berita' => Beritum::orderBy('created_at', 'DESC')->limit(4)->get(),
-            'highlight' => Beritum::where('is_highlight', 1)->get(),
+            'highlight' => Beritum::where('is_highlight', 1)->orderBy('created_at', 'DESC')->get(),
         ];
 
         return view('home', $data);
