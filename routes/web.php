@@ -15,6 +15,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/berita', 'BeritaController@index')->name('berita.index');
 Route::get('/berita/{slug}', 'BeritaController@show')->name('berita.show');
 Route::get('/photo-video', 'PhotoVideoController@index')->name('photo-video.index');
+Route::get('/photo-video/{album}', 'PhotoVideoController@show')->name('photo-video.show');
 Route::get('/competition-venue', 'Competition\VenueController@index')->name('competition.venue.index');
 Route::get('/competition-schedule', 'Competition\ScheduleController@index')->name('competition.schedule.index');
 

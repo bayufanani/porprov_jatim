@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Album;
 use Illuminate\Http\Request;
 
 class PhotoVideoController extends Controller
@@ -13,7 +14,10 @@ class PhotoVideoController extends Controller
      */
     public function index()
     {
-        return view('photo-video.index');
+        $data = [
+            'albums' => Album::orderBy('created_at', 'DESC')->paginate(10),
+        ];
+        return view('photo-video.index', $data);
     }
 
     /**
@@ -43,9 +47,9 @@ class PhotoVideoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Album $album)
     {
-        //
+        return view('photo-video.show', compact('album'));
     }
 
     /**
