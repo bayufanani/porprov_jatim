@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Beritum;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Bus;
 
 class BeritaController extends Controller
 {
@@ -16,6 +17,7 @@ class BeritaController extends Controller
     {
         $data = [
             'beritas' => Beritum::orderBy('created_at', 'DESC')->paginate(10),
+            'highlights' => Beritum::orderBy('created_at', 'DESC')->take(4)->get(),
         ];
         return view('berita.index', $data);
     }
@@ -51,6 +53,7 @@ class BeritaController extends Controller
     {
         $data = [
             'berita' => Beritum::where('slug', $slug)->first(),
+            'highlights' => Beritum::where('is_highlight', 1)->orderBy('created_at', "DESC")->take(4)->get()
         ];
         return view('berita.show', $data);
     }

@@ -15,8 +15,8 @@ class HomeController extends Controller
     public function index()
     {
         $data = [
-            'berita' => Beritum::orderBy('created_at', 'DESC')->limit(4)->get(),
-            'highlight' => Beritum::where('is_highlight', 1)->get(),
+            'berita' => Beritum::orderBy('created_at', 'DESC')->take(8)->get(),
+            'highlight' => Beritum::where('is_highlight', 1)->orderBy('created_at', 'DESC')->take(4)->get(),
         ];
 
         return view('home', $data);
