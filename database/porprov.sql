@@ -11,6 +11,25 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+-- Dumping structure for table porprov.album
+CREATE TABLE IF NOT EXISTS `album` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `judul` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `deskripsi` text COLLATE utf8mb4_unicode_ci,
+  `files` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table porprov.album: ~2 rows (approximately)
+DELETE FROM `album`;
+/*!40000 ALTER TABLE `album` DISABLE KEYS */;
+INSERT INTO `album` (`id`, `judul`, `deskripsi`, `files`, `created_at`, `updated_at`) VALUES
+	(1, 'a', 'a', '["album\\\\June2022\\\\hQyfdqPrPm4rxsaxJKKy.png","album\\\\June2022\\\\eShcT5mLKSg9Fx1I9p7E.png","album\\\\June2022\\\\M6M4X0CLUYdPWWryE4pX.png","album\\\\June2022\\\\j4877oDGDUTsizQf1AQV.png","album\\\\June2022\\\\XY9kOizTlx3ljYB3zjxF.png","album\\\\June2022\\\\e11RaWT7dr1biPcC1LNU.png"]', '2022-06-14 03:21:00', '2022-06-14 04:03:27'),
+	(2, 'b', 'ba', '["album\\\\June2022\\\\xRFw2Xe0gI4PvQXRGtbX.png","album\\\\June2022\\\\E9DN9SvKNnXXxsgJqNiJ.png","album\\\\June2022\\\\y21ySxgEN9VIjYHE9N9e.webp"]', '2022-06-14 04:03:00', '2022-06-14 04:33:44');
+/*!40000 ALTER TABLE `album` ENABLE KEYS */;
+
 -- Dumping structure for table porprov.berita
 CREATE TABLE IF NOT EXISTS `berita` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -28,12 +47,12 @@ CREATE TABLE IF NOT EXISTS `berita` (
   KEY `berita_penulis_index` (`penulis`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table porprov.berita: ~1 rows (approximately)
+-- Dumping data for table porprov.berita: ~4 rows (approximately)
 DELETE FROM `berita`;
 /*!40000 ALTER TABLE `berita` DISABLE KEYS */;
 INSERT INTO `berita` (`id`, `judul`, `foto`, `isi`, `penulis`, `foto_detail`, `created_at`, `updated_at`, `is_highlight`, `slug`) VALUES
 	(5, 'testing 2', '[{"download_link":"berita\\\\June2022\\\\o2K04vbGf4Z0yMFG0x26.png","original_name":"PngItem_351900.png"}]', '<p>ssa<strong>sasas</strong></p>', 2, 'sasasas', '2022-06-12 23:36:00', '2022-06-13 18:44:08', 0, 'testing-4'),
-	(6, 'testing 2', '[]', '<p>asdadada</p>', 2, 'kucing lucu', '2022-06-13 09:13:00', '2022-06-13 18:43:57', 0, 'testing-3'),
+	(6, 'testing 2', '[{"download_link":"berita\\\\June2022\\\\pafxT6YlJb4toa8q4oye.jpg","original_name":"69d4f747-1427-49d3-9f39-8fef65dbb097.jpg"}]', '<p>asdadada</p>', 2, 'kucing lucu', '2022-06-13 09:13:00', '2022-06-15 03:50:14', 0, 'testing-5'),
 	(7, 'testing 2', '[{"download_link":"berita\\\\June2022\\\\p0Ldt0NPSPKvw9d20zQA.png","original_name":"pngkey.com-kawaii-mouth-png-4994875.png"}]', '<p>asdasdasdasdasdasdasdadasd</p>\r\n<ul>\r\n<li>asd</li>\r\n<li>as</li>\r\n<li>dasd</li>\r\n<li>as</li>\r\n<li>ds</li>\r\n</ul>\r\n<p><strong>addasdasdasdasdasd</strong></p>\r\n<p>asdasdasd</p>\r\n<p>asdasdddddjjjjjjasdhalsdaksdlkasjdlaskdl</p>', 2, 'kucin tengkurap', '2022-06-13 09:30:00', '2022-06-13 18:17:12', 1, 'testing-2'),
 	(8, 'testing testin', '[{"download_link":"berita\\\\June2022\\\\YsqSQZJ8ngeAMHTuflcg.png","original_name":"df528bf25dadc0f75d30605be4aad332.png"}]', '<p>as<span style="background-color: #ff00ff;">dadasdasdasdad</span>asd</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>asdasddddd</p>\r\n<p><strong>asdddddddddddddddddddddddddddddddddddddddddddddd</strong></p>', 2, 'pentol', '2022-06-13 09:31:00', '2022-06-13 18:16:17', 1, 'testing-testin');
 /*!40000 ALTER TABLE `berita` ENABLE KEYS */;
@@ -76,9 +95,9 @@ CREATE TABLE IF NOT EXISTS `data_rows` (
   PRIMARY KEY (`id`),
   KEY `data_rows_data_type_id_foreign` (`data_type_id`),
   CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table porprov.data_rows: ~30 rows (approximately)
+-- Dumping data for table porprov.data_rows: ~38 rows (approximately)
 DELETE FROM `data_rows`;
 /*!40000 ALTER TABLE `data_rows` DISABLE KEYS */;
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
@@ -113,7 +132,13 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 	(29, 5, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 9),
 	(30, 5, 'beritum_hasone_user_relationship', 'relationship', 'Penulis', 0, 1, 1, 0, 0, 0, '{"model":"TCG\\\\Voyager\\\\Models\\\\User","table":"users","type":"belongsTo","column":"penulis","key":"id","label":"name","pivot_table":"berita","pivot":"0","taggable":"0"}', 11),
 	(32, 5, 'is_highlight', 'checkbox', 'Is Highlight', 0, 1, 1, 1, 1, 1, '{}', 10),
-	(33, 5, 'slug', 'text', 'Slug', 0, 1, 1, 1, 1, 1, '{"slugify":{"origin":"judul","forceUpdate":true}}', 3);
+	(33, 5, 'slug', 'text', 'Slug', 0, 1, 1, 1, 1, 1, '{"slugify":{"origin":"judul","forceUpdate":true}}', 3),
+	(40, 10, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+	(41, 10, 'judul', 'text', 'Judul', 0, 1, 1, 1, 1, 1, '{}', 2),
+	(42, 10, 'deskripsi', 'text', 'Deskripsi', 0, 1, 1, 1, 1, 1, '{}', 3),
+	(43, 10, 'files', 'multiple_images', 'Files', 0, 1, 1, 1, 1, 1, '{}', 4),
+	(44, 10, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, '{}', 5),
+	(45, 10, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 6);
 /*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
 
 -- Dumping structure for table porprov.data_types
@@ -136,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `data_types` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `data_types_name_unique` (`name`),
   UNIQUE KEY `data_types_slug_unique` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table porprov.data_types: ~5 rows (approximately)
 DELETE FROM `data_types`;
@@ -145,7 +170,8 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 	(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', '', 1, 0, NULL, '2022-06-12 16:32:32', '2022-06-12 16:32:32'),
 	(2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2022-06-12 16:32:32', '2022-06-12 16:32:32'),
 	(3, 'roles', 'roles', 'Role', 'Roles', 'voyager-brush', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', NULL, 1, 0, '{"order_column":null,"order_display_column":null,"order_direction":"desc","default_search_key":null,"scope":null}', '2022-06-12 16:32:32', '2022-06-13 01:35:48'),
-	(5, 'berita', 'berita', 'Berita', 'Berita-berita', 'voyager-news', 'App\\Beritum', NULL, NULL, NULL, 1, 1, '{"order_column":null,"order_display_column":"created_at","order_direction":"desc","default_search_key":null,"scope":null}', '2022-06-12 16:51:47', '2022-06-13 18:16:56');
+	(5, 'berita', 'berita', 'Berita', 'Berita-berita', 'voyager-news', 'App\\Beritum', NULL, NULL, NULL, 1, 1, '{"order_column":null,"order_display_column":"created_at","order_direction":"desc","default_search_key":null,"scope":null}', '2022-06-12 16:51:47', '2022-06-13 18:16:56'),
+	(10, 'album', 'album', 'Album', 'Albums', NULL, 'App\\Album', NULL, NULL, NULL, 1, 0, '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}', '2022-06-14 03:18:19', '2022-06-14 03:19:34');
 /*!40000 ALTER TABLE `data_types` ENABLE KEYS */;
 
 -- Dumping structure for table porprov.failed_jobs
@@ -199,9 +225,9 @@ CREATE TABLE IF NOT EXISTS `menu_items` (
   PRIMARY KEY (`id`),
   KEY `menu_items_menu_id_foreign` (`menu_id`),
   CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table porprov.menu_items: ~11 rows (approximately)
+-- Dumping data for table porprov.menu_items: ~12 rows (approximately)
 DELETE FROM `menu_items`;
 /*!40000 ALTER TABLE `menu_items` DISABLE KEYS */;
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
@@ -209,13 +235,14 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 	(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 4, '2022-06-12 16:32:33', '2022-06-12 22:40:50', 'voyager.media.index', NULL),
 	(3, 1, 'Users', '', '_self', 'voyager-person', NULL, NULL, 3, '2022-06-12 16:32:33', '2022-06-12 16:32:33', 'voyager.users.index', NULL),
 	(4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 2, '2022-06-12 16:32:33', '2022-06-12 16:32:33', 'voyager.roles.index', NULL),
-	(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 6, '2022-06-12 16:32:33', '2022-06-12 22:40:50', NULL, NULL),
+	(5, 1, 'Tools', '', '_self', 'voyager-tools', NULL, NULL, 7, '2022-06-12 16:32:33', '2022-06-14 04:06:11', NULL, NULL),
 	(6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 1, '2022-06-12 16:32:33', '2022-06-12 22:40:50', 'voyager.menus.index', NULL),
 	(7, 1, 'Database', '', '_self', 'voyager-data', NULL, 5, 2, '2022-06-12 16:32:33', '2022-06-12 22:40:50', 'voyager.database.index', NULL),
 	(8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 3, '2022-06-12 16:32:33', '2022-06-12 22:40:50', 'voyager.compass.index', NULL),
 	(9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2022-06-12 16:32:33', '2022-06-12 22:40:50', 'voyager.bread.index', NULL),
-	(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 7, '2022-06-12 16:32:33', '2022-06-12 22:40:50', 'voyager.settings.index', NULL),
-	(11, 1, 'Berita', '', '_self', 'voyager-news', '#000000', NULL, 5, '2022-06-12 16:51:48', '2022-06-13 01:39:33', 'voyager.berita.index', 'null');
+	(10, 1, 'Settings', '', '_self', 'voyager-settings', NULL, NULL, 8, '2022-06-12 16:32:33', '2022-06-14 04:06:11', 'voyager.settings.index', NULL),
+	(11, 1, 'Berita', '', '_self', 'voyager-news', '#000000', NULL, 5, '2022-06-12 16:51:48', '2022-06-13 01:39:33', 'voyager.berita.index', 'null'),
+	(14, 1, 'Albums', '', '_self', 'voyager-images', '#000000', NULL, 6, '2022-06-14 03:18:19', '2022-06-14 04:07:47', 'voyager.album.index', 'null');
 /*!40000 ALTER TABLE `menu_items` ENABLE KEYS */;
 
 -- Dumping structure for table porprov.migrations
@@ -304,9 +331,9 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `permissions_key_index` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table porprov.permissions: ~30 rows (approximately)
+-- Dumping data for table porprov.permissions: ~35 rows (approximately)
 DELETE FROM `permissions`;
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
 INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`) VALUES
@@ -339,7 +366,12 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 	(27, 'read_berita', 'berita', '2022-06-12 16:51:47', '2022-06-12 16:51:47'),
 	(28, 'edit_berita', 'berita', '2022-06-12 16:51:47', '2022-06-12 16:51:47'),
 	(29, 'add_berita', 'berita', '2022-06-12 16:51:48', '2022-06-12 16:51:48'),
-	(30, 'delete_berita', 'berita', '2022-06-12 16:51:48', '2022-06-12 16:51:48');
+	(30, 'delete_berita', 'berita', '2022-06-12 16:51:48', '2022-06-12 16:51:48'),
+	(41, 'browse_album', 'album', '2022-06-14 03:18:19', '2022-06-14 03:18:19'),
+	(42, 'read_album', 'album', '2022-06-14 03:18:19', '2022-06-14 03:18:19'),
+	(43, 'edit_album', 'album', '2022-06-14 03:18:19', '2022-06-14 03:18:19'),
+	(44, 'add_album', 'album', '2022-06-14 03:18:19', '2022-06-14 03:18:19'),
+	(45, 'delete_album', 'album', '2022-06-14 03:18:19', '2022-06-14 03:18:19');
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 
 -- Dumping structure for table porprov.permission_role
@@ -353,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `permission_role` (
   CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table porprov.permission_role: ~30 rows (approximately)
+-- Dumping data for table porprov.permission_role: ~49 rows (approximately)
 DELETE FROM `permission_role`;
 /*!40000 ALTER TABLE `permission_role` DISABLE KEYS */;
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
@@ -386,11 +418,26 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 	(23, 2),
 	(24, 1),
 	(25, 1),
+	(26, 1),
 	(26, 2),
+	(27, 1),
 	(27, 2),
+	(28, 1),
 	(28, 2),
+	(29, 1),
 	(29, 2),
-	(30, 2);
+	(30, 1),
+	(30, 2),
+	(41, 1),
+	(41, 2),
+	(42, 1),
+	(42, 2),
+	(43, 1),
+	(43, 2),
+	(44, 1),
+	(44, 2),
+	(45, 1),
+	(45, 2);
 /*!40000 ALTER TABLE `permission_role` ENABLE KEYS */;
 
 -- Dumping structure for table porprov.posts
@@ -506,7 +553,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table porprov.users: ~1 rows (approximately)
+-- Dumping data for table porprov.users: ~2 rows (approximately)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
