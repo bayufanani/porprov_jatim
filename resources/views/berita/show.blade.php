@@ -13,12 +13,17 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <h6 class="text-center"><i>Detail: {{ $berita->foto_detail }}</i></h6>
+                    <h6 class="text-center"><i>{{ $berita->foto_detail }}</i></h6>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <i>{{ date('d M Y', strtotime($berita->created_at)) }}</i>
+                    <i>{{ date('d M Y', strtotime($berita->created_at)) }} - {{ $berita->user->name }}</i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p>{!! $berita->heading !!}</p>
                 </div>
             </div>
             <div class="row">
@@ -50,11 +55,6 @@
                         class="d-none d-md-inline-block">
                         <i class="ri-whatsapp-fill"></i>
                     </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12" style="text-align: right">
-                    <strong>{{ $berita->user->name }}</strong>
                 </div>
             </div>
         </div>

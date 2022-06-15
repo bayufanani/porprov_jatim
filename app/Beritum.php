@@ -45,4 +45,11 @@ class Beritum extends Model
     {
         return $this->belongsTo('App\User', 'penulis');
     }
+
+    public function cleanHeading()
+    {
+        $string = htmlentities($this->heading, null, 'utf-8');
+        $content = str_replace("&nbsp;", "", $string);
+        return html_entity_decode($content);
+    }
 }
