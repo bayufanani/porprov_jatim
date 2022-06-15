@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `data_rows` (
   CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table porprov.data_rows: ~37 rows (approximately)
+-- Dumping data for table porprov.data_rows: ~38 rows (approximately)
 DELETE FROM `data_rows`;
 /*!40000 ALTER TABLE `data_rows` DISABLE KEYS */;
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
@@ -200,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   UNIQUE KEY `menus_name_unique` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table porprov.menus: ~0 rows (approximately)
+-- Dumping data for table porprov.menus: ~1 rows (approximately)
 DELETE FROM `menus`;
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
 INSERT INTO `menus` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -385,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `permission_role` (
   CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table porprov.permission_role: ~42 rows (approximately)
+-- Dumping data for table porprov.permission_role: ~49 rows (approximately)
 DELETE FROM `permission_role`;
 /*!40000 ALTER TABLE `permission_role` DISABLE KEYS */;
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
