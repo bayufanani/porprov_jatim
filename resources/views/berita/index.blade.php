@@ -17,6 +17,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h3>{{ $berita->judul }}</h3>
+                                        <i>{{ $berita->created_at }}</i>
                                         <p>{!! $berita->heading !!}</p>
                                         <a href="{{ route('berita.show', ['slug' => $berita->slug]) }}"
                                             class="readmore stretched-link mt-auto"><span>Read More</span>
@@ -41,7 +42,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <h3 style="font-size: 1rem">{{ $berita->judul }}</h3>
-                                        <p>{!! $berita->heading !!}</p>
+                                        {{-- <p>{!! $berita->heading !!}</p> --}}
+                                        <i>{{ $berita->created_at }}</i>
                                         <a href="{{ route('berita.show', ['slug' => $berita->slug]) }}"
                                             class="readmore stretched-link mt-auto"><span>Read More</span>
                                             <i class="bi bi-arrow-right"></i></a>

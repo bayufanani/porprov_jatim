@@ -79,6 +79,7 @@
                             </div>
                             <span class="post-date"></span>
                             <h3 class="post-title">{{ $item->judul }}</h3>
+                            <i>{{ $item->created_at }}</i>
                             <a href="{{ route('berita.show', ['slug' => $item->slug]) }}"
                                 class="readmore stretched-link mt-auto">
                                 <span>Read More</span>
@@ -113,6 +114,7 @@
                             </div>
                             <span class="post-date"></span>
                             <h3 class="post-title">{{ $item->judul }}</h3>
+                            <i>{{ $item->created_at }}</i>
                             <a href="{{ route('berita.show', ['slug' => $item->slug]) }}"
                                 class="readmore stretched-link mt-auto"><span>Read More</span><i
                                     class="bi bi-arrow-right"></i></a>
