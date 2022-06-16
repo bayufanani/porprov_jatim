@@ -25,6 +25,40 @@
         </div>
 
     </section><!-- End Hero -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nama</th>
+                                        <th>Emas</th>
+                                        <th>Perak</th>
+                                        <th>Perunggu</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($medali as $item)
+                                        <tr>
+                                            <td>{{ $item['nama'] }}</td>
+                                            <td>{{ $item['emas'] }}</td>
+                                            <td>{{ $item['perak'] }}</td>
+                                            <td>{{ $item['perunggu'] }}</td>
+                                            <td>{{ $item['total'] }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- ======= Highlight Blog Posts Section ======= -->
     <section id="highlight-blog-posts" class="highlight-blog-posts">
 

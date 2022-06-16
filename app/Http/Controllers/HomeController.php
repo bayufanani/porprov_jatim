@@ -14,9 +14,34 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $medali = collect([
+            [
+                'nama' => 'Situbondo',
+                'emas' => 3,
+                'perak' => 7,
+                'perunggu' => 8,
+                'total' => 18
+            ],
+            [
+                'nama' => 'Jember',
+                'emas' => 2,
+                'perak' => 7,
+                'perunggu' => 6,
+                'total' => 15
+            ],
+            [
+                'nama' => 'Lumajang',
+                'emas' => 1,
+                'perak' => 3,
+                'perunggu' => 9,
+                'total' => 13
+            ]
+        ]);
+
         $data = [
             'berita' => Beritum::orderBy('created_at', 'DESC')->take(8)->get(),
             'highlight' => Beritum::where('is_highlight', 1)->orderBy('created_at', 'DESC')->take(4)->get(),
+            'medali' => $medali
         ];
 
         return view('home', $data);
