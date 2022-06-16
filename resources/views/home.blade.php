@@ -80,8 +80,10 @@
                             <span class="post-date"></span>
                             <h3 class="post-title">{{ $item->judul }}</h3>
                             <a href="{{ route('berita.show', ['slug' => $item->slug]) }}"
-                                class="readmore stretched-link mt-auto"><span>Read More</span><i
-                                    class="bi bi-arrow-right"></i></a>
+                                class="readmore stretched-link mt-auto">
+                                <span>Read More</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 @endforeach
@@ -122,4 +124,23 @@
         </div>
 
     </section><!-- End Recent Blog Posts Section -->
+    <section>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p>
+                            <strong>Porprov JATIM</strong>
+                        <p>
+                            Office: Gedung Suhartatik <br>
+                            Jl. Kertajaya Indah Timur IV/5, Surabaya <br>
+                            Telepon: (031) 5946222 Fax: (031) 5962567 <br>
+                            Hubungi kami: <a href="mailto:humas@konijawatimur.co">humas@konijawatimur.co</a>
+                        </p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
 @endsection
